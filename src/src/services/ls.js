@@ -11,9 +11,11 @@ export async function ls() {
         let table = await setTable(files);
 
 		const typeFile = filterSortTable(table, 'file');
+		const typeUndefined = filterSortTable(table, 'undefined');
+		const typeError = filterSortTable(table, 'error');
 		const typeDirectory = filterSortTable(table, 'directory');
 		
-		let result = typeDirectory.concat(typeFile)
+		let result = typeDirectory.concat(typeFile, typeUndefined, typeError)
 
 		console.table(result);
 	} catch (error) {

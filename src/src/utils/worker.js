@@ -2,8 +2,13 @@ import { parentPort, workerData } from 'worker_threads';
 import fs from "fs/promises";
 
 const worker = async () => {
-    const stat = await fs.lstat(workerData);
-    const type = stat.isFile() === true ? 'file' : 'directory' 
-    parentPort.postMessage({Name: workerData, Type: type})
+    try {
+        const stat = await fs.lstat(workerData);
+        const type = stat.isFile() === true ? 'file' : stat.isDirectory() === true ? 'directory' : 'error'
+        parentPort.postMessage({Name: workerData, Type: type})
+    } catch (error) {
+        parentPort.postMessage({Name: workerData, Type: 'undefined'})
+    }
+
 }
 worker();
