@@ -1,4 +1,5 @@
 import { EOL, platform } from "os";
+import { cat } from "./services/cat.js";
 import { cd } from "./services/cd.js";
 import { ls } from "./services/ls.js";
 import { up } from "./services/up.js";
@@ -7,7 +8,6 @@ import { up } from "./services/up.js";
 
 export const  router = async (rl) => {
     rl.on("line", async function (line) {
-
         let [command, ...args] = line.split(' ');
 
         switch (command) {
@@ -23,6 +23,10 @@ export const  router = async (rl) => {
                 up();
                 break;
             };
+            case "cat": {
+                await cat(args, rl);
+                break;
+            }
             case "em": {
                 console.log('__dirname');
                 break;
