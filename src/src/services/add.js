@@ -1,17 +1,16 @@
-import path from 'path';
 import { writeFile } from "fs/promises"
+import { OPERATION_ERROR } from "../utils/const.js";
+import { transformArgsAdd } from '../utils/transformArgsForAdd.js';
 
-export async function add (pathToDirectory) {
-    const dir = path.isAbsolute(pathToDirectory)
-    ? pathToDirectory
-    : path.join(process.cwd(), pathToDirectory);
+export async function add (args) {
 
-
+    const dir = transformArgsAdd(args)
+    
     try {
         await writeFile(dir, '', { flag: 'wx'});
         console.log('File created');
-    } catch (err) {
-        console.log('File already exists');
+    } catch (e) {
+        console.log(OPERATION_ERROR);
     }
 
 }

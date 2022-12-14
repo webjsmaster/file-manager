@@ -3,6 +3,7 @@ import { add } from "./services/add.js";
 import { cat } from "./services/cat.js";
 import { cd } from "./services/cd.js";
 import { ls } from "./services/ls.js";
+import { rename } from "./services/rename.js";
 import { up } from "./services/up.js";
 import { INVALID_ERROR } from "./utils/const.js";
 
@@ -30,9 +31,13 @@ export const  router = async (rl) => {
                 break;
             };
             case "add": {
-                await add(args.toString());
+                await add(args);
                 break;
             };
+            case "rn": {
+                await rename(args);
+                break;
+            }
 
             case "close": {
                 
