@@ -5,7 +5,7 @@ import { dirPath } from "./dirPath.js";
 
 
 export async function setTable(files) {
-	const workerFile = `${await dirPath(import.meta.url)}/worker.js`;
+	const workerFile = `${await dirPath(import.meta.url)}/workerForSetTable.js`;
 
 	const arrResult = await Promise.all(
 		files.map((file) => {

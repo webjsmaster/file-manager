@@ -20,7 +20,7 @@ const username = args["--username"] ? `\x1b[35m ${args["--username"]} \x1b[0m` :
 console.log(`\x1b[33m Welcome to the File Manager, ${username}! \x1b[0m`, EOL);
 
 let rl = createInterface(process.stdin, process.stdout);
-rl.setPrompt(`\x1b[32m ${process.cwd()}>-----\x1b[0m`);
+rl.setPrompt(`\x1b[32m ${process.cwd()}>\x1b[0m`);
 rl.prompt();
 
 
