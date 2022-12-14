@@ -3,13 +3,16 @@ import path from "path";
 export function transformArgsAdd(args) {
 	if (args.toString().startsWith("'")) {
 		const arrArgs = args.join(" ").trim().split("'");
+		
+
+		console.log(arrArgs);
 
 		if (arrArgs.length === 3) {
 			return path.resolve(arrArgs[1]);
 		} else if (arrArgs.length === 5) {
 			return {
-				one_path: path.resolve(arrArgs[1].trim()),
-				two_path: path.resolve(arrArgs[3].trim()),
+				one_file: path.resolve(arrArgs[1].trim()),
+				two_file: path.resolve(arrArgs[3].trim()),
 			};
 		}
 	} else {

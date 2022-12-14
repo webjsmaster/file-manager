@@ -2,6 +2,7 @@ import { EOL, platform } from "os";
 import { add } from "./services/add.js";
 import { cat } from "./services/cat.js";
 import { cd } from "./services/cd.js";
+import { copy } from "./services/copy.js";
 import { ls } from "./services/ls.js";
 import { rename } from "./services/rename.js";
 import { up } from "./services/up.js";
@@ -37,11 +38,13 @@ export const  router = async (rl) => {
             case "rn": {
                 await rename(args);
                 break;
-            }
-
+            };
+            case "cp": {
+                await copy(args);
+                break;
+            };
             case "close": {
-                
-                //console.log(`Thank you for using File Manager, ${homedir}!`);
+
                 rl.close()
                 break;
             };
