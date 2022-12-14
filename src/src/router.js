@@ -27,7 +27,7 @@ export const  router = async (rl) => {
                 break;
             };
             case "cat": {
-                await cat(args.toString());
+                await cat(args);
                 break;
             };
             case "add": {

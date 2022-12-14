@@ -2,14 +2,10 @@ import { createReadStream } from 'fs';
 import path from "path";
 import { OPERATION_ERROR } from '../utils/const.js';
 
-
-
-
-export async function cat (pathToDirectory) {
+export async function cat (args) {
     return new Promise((resolve) => {
-        const dir = path.isAbsolute(pathToDirectory)
-            ? pathToDirectory
-            : path.join(process.cwd(), pathToDirectory);
+        const trimArgs = args.join(' ').trim();
+        const dir = path.resolve(trimArgs.toString())
         
         const rs = createReadStream(dir, { encoding: "utf-8" });
         

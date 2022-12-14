@@ -13,7 +13,7 @@ const args = Object.fromEntries(
 	})
 );
 
-process.chdir(homedir())
+process.chdir(homedir());
 
 const username = args["--username"] ? `\x1b[35m ${args["--username"]} \x1b[0m` : "\x1b[31m stranger \x1b[0m";
 
@@ -23,17 +23,12 @@ let rl = createInterface(process.stdin, process.stdout);
 rl.setPrompt(`\x1b[32m ${process.cwd()}>\x1b[0m`);
 rl.prompt();
 
-
-router(rl)
+router(rl);
 
 rl.on("SIGINT", () => rl.close());
 
 rl.on("close", function () {
-    exit(username);
+	exit(username);
 });
 
-
-exitProcess({rl, username});
-
-
-
+exitProcess({ rl, username });
