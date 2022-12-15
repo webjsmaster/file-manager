@@ -40,7 +40,7 @@ export const  router = async (rl) => {
                 break;
             };
             case "cp": {
-                await copy(args);
+                await copy(args, rl);
                 break;
             };
             case "close": {
