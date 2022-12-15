@@ -4,6 +4,7 @@ import { cat } from "./services/cat.js";
 import { cd } from "./services/cd.js";
 import { copy } from "./services/copy.js";
 import { ls } from "./services/ls.js";
+import { os } from "./services/os.js";
 import { rename } from "./services/rename.js";
 import { up } from "./services/up.js";
 import { INVALID_ERROR } from "./utils/const.js";
@@ -43,8 +44,11 @@ export const  router = async (rl) => {
                 await copy(args, rl);
                 break;
             };
+            case "os": {
+                await os(args);
+                break;
+            }
             case "close": {
-
                 rl.close()
                 break;
             };
