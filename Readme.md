@@ -1,3 +1,15 @@
+# Описание по командам
+
+## `cp`
+работатет как с 
+```bash
+/home/yuranius>cp 't.txt' '/user'
+``` 
+так и без 
+
+## `up`
+
+
 # Assignment: File Manager
 
 ## Description

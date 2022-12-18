@@ -1,12 +1,5 @@
 import { EOL, platform } from "os";
-import { add } from "./services/add.js";
-import { cat } from "./services/cat.js";
-import { cd } from "./services/cd.js";
-import { copy } from "./services/copy.js";
-import { ls } from "./services/ls.js";
-import { os } from "./services/os.js";
-import { rename } from "./services/rename.js";
-import { up } from "./services/up.js";
+import { add, cat,  cd, compressDecompress, copyAndRemove, hash, ls, os, remove, rename, up } from "./services/index.js";
 import { INVALID_ERROR } from "./utils/const.js";
 
 
@@ -41,7 +34,27 @@ export const  router = async (rl) => {
                 break;
             };
             case "cp": {
-                await copy(args, rl);
+                await copyAndRemove({args});
+                break;
+            };
+            case "mv": {
+                await copyAndRemove({args, del: true});
+                break;
+            };
+            case "rm": {
+                await remove(args);
+                break;
+            };
+            case "hash": {
+                await hash(args);
+                break;
+            };
+            case "compress": {
+                await compressDecompress({args});
+                break;
+            };
+            case "decompress": {
+                await compressDecompress({args, decompress: true});
                 break;
             };
             case "os": {

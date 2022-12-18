@@ -1,6 +1,6 @@
 import path from "path";
 
-export function transformArgsAdd(args) {
+export function transformArgs(args) {
 	if (args.toString().startsWith("'")) {
 		const arrArgs = args.join(" ").trim().split("'");
 
