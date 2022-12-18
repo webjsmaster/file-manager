@@ -1,4 +1,4 @@
-import { EOL, platform } from "os";
+import { EOL } from "os";
 import { add, cat,  cd, compressDecompress, copyAndRemove, hash, ls, os, remove, rename, up } from "./services/index.js";
 import { INVALID_ERROR } from "./utils/const.js";
 
@@ -61,7 +61,7 @@ export const  router = async (rl) => {
                 await os(args);
                 break;
             }
-            case "close": {
+            case ".exit": {
                 rl.close()
                 break;
             };
